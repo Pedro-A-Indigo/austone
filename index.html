@@ -1243,7 +1243,7 @@
               />
             </div>
           </div>
-          <form>
+          <form id="form">
             <div class="content fr-regular" data-v-61284892="">
               <div class="send mt52" data-v-61284892="">
                 <div class="send__left" data-v-61284892="">
@@ -1254,7 +1254,8 @@
                 </div>
                 <div class="send__right" data-v-61284892="">
                   <input
-                    id="input"
+                    id="name"
+                    name="name"
                     value=""
                     class="send__right--input"
                     placeholder="Ingrese su nombre"
@@ -1274,7 +1275,12 @@
                 <div class="send__right" data-v-61284892="">
                   <div class="phone" data-v-61284892="">
                     <div class="choose" data-v-61284892>
-                      <select class="choose__select" data-v-61284892>
+                      <select
+                        class="choose__select"
+                        data-v-61284892
+                        name="phone-area"
+                        id="phone-area"
+                      >
                         <option value="1">+1 (United States/Canada)</option>
                         <option value="52">+52 (Mexico)</option>
                         <option value="53">+53 (Cuba)</option>
@@ -1360,8 +1366,9 @@
                   </div>
                   <input
                     class="send__right--detail"
+                    name="phone"
                     value=""
-                    id="input"
+                    id="phone"
                     type="text"
                     placeholder="ej. 1155555555"
                     data-v-61284892=""
@@ -1377,7 +1384,8 @@
                 <div class="send__right" data-v-61284892="">
                   <input
                     value=""
-                    id="input"
+                    name="email"
+                    id="email"
                     class="send__right--input"
                     placeholder="Ingrese su email"
                     type="text"
@@ -1395,7 +1403,12 @@
                 </div>
                 <div class="send__right" data-v-61284892="">
                   <div class="choose" data-v-61284892>
-                    <select class="choose__select" data-v-61284892>
+                    <select
+                      class="choose__select"
+                      data-v-61284892
+                      name="provincia"
+                      id="provincia"
+                    >
                       <option value="CABA">
                         Ciudad Autónoma de Buenos Aires
                       </option>
@@ -1447,7 +1460,8 @@
                 <div class="send__right" data-v-61284892="">
                   <textarea
                     class="desc"
-                    id="input"
+                    name="comentario"
+                    id="comentario"
                     placeholder="Ingrese su pregunta o comentario"
                     data-v-61284892=""
                   ></textarea>
@@ -1565,6 +1579,55 @@
       document.querySelectorAll('.mobile-nav a').forEach((item) => {
         item.addEventListener('click', function () {
           document.querySelector('.mobile-menu').style.display = 'none';
+        });
+      });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <script>
+      $(function () {
+        $('#form').validate({
+          errorElement: 'div', // Use <div> for errors
+          rules: {
+            name: 'required',
+            phone: {
+              required: true,
+              number: true,
+              minlength: 5,
+              // maxlength: 15
+            },
+            email: {
+              required: true,
+              email: true,
+            },
+            comentario: 'required',
+          },
+          messages: {
+            name: 'Requerido',
+            phone: {
+              required: 'Requerido',
+              number: 'Ingrese solo números',
+              minlength: 'Minimo 5 dígitos',
+              // maxlength: "Debe tener un máximo de 15 dígitos"
+            },
+
+            email: {
+              required: 'Requerido',
+              email: 'Ingrese un email válido',
+            },
+            comentario: 'Requerido',
+          },
+          errorPlacement: function (error, element) {
+            element.closest('.send__right').find('.error-message').remove();
+
+            error.addClass('error-message');
+            element.after(error);
+          },
+          submitHandler: function (form) {
+            alert('Formulario enviado correctamente!'); //REMOVE THIS LINE IF NEEDED
+            form.submit();
+          },
         });
       });
     </script>

@@ -1647,7 +1647,7 @@ img {
   outline: none;
   border-radius: 6px;
   border: 1px solid #eee;
-  width: 636px;
+  width: 100%;
   height: 48px;
   background: #fff;
   text-indent: 21px;
@@ -1877,4 +1877,32 @@ img {
 }
 .right_footer p{
   font-size: 12px;
+}
+
+
+.send__right {
+    position: relative;
+}
+.send__right {
+  
+  position: relative;
+}
+
+.error-message {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: red;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+#comentario-error{
+  top: 25px;
+}
+
+.send__right input.error, 
+.send__right textarea.error {
+  border: 1px solid red;
 }
