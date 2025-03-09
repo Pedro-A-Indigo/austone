@@ -1651,7 +1651,7 @@ img {
   height: 48px;
   background: #fff;
   text-indent: 21px;
-  color: #c5c5c5;
+  color: #000;
   font-size: 18px;
 }
 .content .prove[data-v-61284892] {
@@ -1685,7 +1685,7 @@ img {
   border: none;
   background: transparent;
   font-size: 18px;
-  color: #c5c5c5;
+  color: #000;
   outline: none;
   /* Remove default arrow */
   appearance: none;
