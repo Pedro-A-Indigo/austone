@@ -1821,7 +1821,7 @@ img {
   text-align: center;
   background-color: #252525;
   color: #fff;
-  font-size: 10px;
+  font-size: 16px;
   padding: 20px 30px;
 }
 
@@ -1830,7 +1830,7 @@ img {
 }
 
 .footer_container img {
-  width: 100px;
+  width: 175px;
 }
 
 .redes img {
@@ -1866,7 +1866,7 @@ img {
 
 .gep img {
   margin-left: 10px;
-  width: 60px;
+  width: 100px;
 }
 
 .right_footer{
@@ -1876,7 +1876,7 @@ img {
   gap: 20px;
 }
 .right_footer p{
-  font-size: 12px;
+  font-size: 16px;
 }
 
 
